@@ -1,4 +1,4 @@
-###Extract : 
+## Extract : 
 
 * Data sets used : ticketmaster API and MTV 10,000 artists info csv file.
 
@@ -8,7 +8,7 @@
 
 
 
-###Transform:
+## Transform:
 
 (1) Ticketmaster data set clean up
 * icketmaster API was extracted to a CSV file.
@@ -25,7 +25,7 @@
 
 
 
-###Load: 
+## Load: 
 * By using sqlAlchemy create_engine, uploaded data frame to Postgres. And we were able to confirm two tables [‘ticketmaster’,’mtv_data’]
 
 *The reason why we chose these two data sets and decided to make the tables is that we wanted to see if any notable music artists have any upcoming concerts in New York State area. 
