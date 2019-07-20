@@ -1,5 +1,4 @@
-# TEAM 26 PROJECT ETL
-
+# ETL Project
 
 
 ## Extract : 
