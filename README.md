@@ -11,10 +11,10 @@
 ## Transform:
 
 (1) Ticketmaster data set clean up
-* icketmaster API was extracted to a CSV file.
+* Ticketmaster API was extracted to a CSV file.
 * Artist names were either none existence or multiple separated by a comma. First, dropped all NA artist names and 
 * then separated artists column by comma and only took the first column then replaced in as Artists column on DF.
-* Cleaned up excessive equation marks and brackets from the original API data.
+* Cleaned up excessive quotation marks and brackets from the original API data.
 
 
   
