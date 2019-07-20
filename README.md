@@ -2,7 +2,7 @@
 
 * Data sets used : ticketmaster API and MTV 10,000 artists info csv file.
 
-(1) Extracting ticketmaster API : 
+(1) Extracting ticketmaster API : Wrote code to get data on all upcoming concert in NY state. Refer to "ticketmaster_extract.ipynb"
 
 (2) MTV 10,000 artist.csv : source [data world]
 
