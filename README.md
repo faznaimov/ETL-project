@@ -11,7 +11,7 @@ Datasets used : ticketmaster API and MTV 10,000 artists info.
 
 ## Transform:
 
-#### Ticketmaster data set clean up
+### Ticketmaster data set clean up
 * Artist names were either none existence or multiple separated by a comma. First, dropped all NA artist names and then separated artists column by comma and only took the first column then replaced in as Artists column on DF.
 ``` python
 #droping all the artists are 'nan'
@@ -31,7 +31,7 @@ concert_df['artists']=concert_df['artists'].str.strip('"').astype(str)
 ```
 [Ticketmaster data Transform Jupyter Notebook](ticketmaster_sqltrans.ipynb)
   
-#### Mtv data set clean up
+### MTV data set clean up
 * Dropped duplicate artists then dropped social media links
 ``` python
 df = df.drop_duplicates('name', keep = 'first', inplace=False)
@@ -50,7 +50,7 @@ df = df.rename(columns={'mtv':'bio_link'})
 ## Load: 
 * By using sqlAlchemy create_engine, uploaded data frame to Postgres. And we were able to confirm two tables [‘ticketmaster’,’mtv_data’]
 
-*The reason why we chose these two data sets and decided to make the tables is that we wanted to see if any notable music artists have any upcoming concerts in New York State area. 
+* The reason why we chose these two data sets and decided to make the tables is that we wanted to see if any notable music artists have any upcoming concerts in New York State area. 
 
 
 
