@@ -3,16 +3,15 @@
 
 ## Extract : 
 
-* Data sets used : ticketmaster API and MTV 10,000 artists info csv file.
+Datasets used : ticketmaster API and MTV 10,000 artists info.
 
 1. Extracting ticketmaster API : Wrote code to get data on all upcoming concert in NY state. Refer to [Jupyter Notebook](ticketmaster_extract.ipynb)
 
-2. MTV 10,000 artist.csv : source [data world]
+2. MTV 10,000 artist.csv : [Source](https://gist.github.com/mbejda/9912f7a366c62c1f296c)
 
 ## Transform:
 
-#### 1. Ticketmaster data set clean up
-* Ticketmaster API was extracted to a CSV file.
+#### Ticketmaster data set clean up
 * Artist names were either none existence or multiple separated by a comma. First, dropped all NA artist names and then separated artists column by comma and only took the first column then replaced in as Artists column on DF.
 ``` python
 #droping all the artists are 'nan'
@@ -32,7 +31,7 @@ concert_df['artists']=concert_df['artists'].str.strip('"').astype(str)
 ```
 [Ticketmaster data Transform Jupyter Notebook](ticketmaster_sqltrans.ipynb)
   
-#### 2. Mtv data set clean up
+#### Mtv data set clean up
 * Dropped duplicate artists then dropped social media links
 ``` python
 df = df.drop_duplicates('name', keep = 'first', inplace=False)
