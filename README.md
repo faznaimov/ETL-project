@@ -6,7 +6,8 @@ Our final goal is to have a dataset of all upcoming concerts in NY state area an
 
 Datasets used : ticketmaster API and MTV 10,000 artists info.
 
-1. Extracting ticketmaster API : Pulled data on all upcoming concert in NY state. 
+1. Extracting ticketmaster API : Pulled data on all upcoming concert in NY state.
+
 ``` python
 url = "https://app.ticketmaster.com/discovery/v2/events.json?"
 segment = "music"
@@ -101,6 +102,7 @@ concerts.columns = ['concert_name',
 #saving as scv 
 concerts.to_csv('output/concerts.csv',index = False)
 ```
+
 [Ticketmaster Data Extraction Jupyter Notebook](ticketmaster_extract.ipynb)
 
 2. MTV 10,000 artist.csv : [Source](https://gist.github.com/mbejda/9912f7a366c62c1f296c)
@@ -109,6 +111,7 @@ concerts.to_csv('output/concerts.csv',index = False)
 
 ### Ticketmaster data set clean up
 * Artists colum had N/A and lists separated by a comma. First, dropped all NA artist names and then separated artists column by comma and only took the first column then replaced in as Artists column on DF. (Future enhancement get all the artists in the list)
+
 ``` python
 #droping all the artists are 'nan'
 to_drop = ['nan']
@@ -125,22 +128,29 @@ concert_df['artists']=concert_df['artists'].str.strip('[]').astype(str)
 concert_df['artists']=concert_df['artists'].str.strip("'").astype(str)
 concert_df['artists']=concert_df['artists'].str.strip('"').astype(str)
 ```
+
 [Ticketmaster data Transform Jupyter Notebook](ticketmaster_sqltrans.ipynb)
   
 ### MTV data set clean up
 * Dropped duplicate artists and social media links
+
 ``` python
 df = df.drop_duplicates('name', keep = 'first', inplace=False)
 df = df.drop(['facebook','twitter'], axis = 1)
 ```
+
 * Rearranged dataset
+
 ``` python
 df = df[['name','genre','website','mtv']]
 ```
+
 * Renamed Mtv column to bio_link
+
 ``` python
 df = df.rename(columns={'mtv':'bio_link'})
 ```
+
 [MTV data Transform Jupyter Notebook](mtv_data_ETL.ipynb)
 
 ## Load: 
